@@ -10,27 +10,27 @@ const about = [
     {
         title: "K-Drama",
         icon: <Clapperboard />,
-        path: "/test"
+        path: "/k-drama"
     },
     {
         title: "C-Drama",
         icon: <Film />,
-        path: "/test"
+        path: "/c-drama"
     },
     {
         title: " Cartoon",
         icon: <Popcorn />,
-        path: "/test"
+        path: "/cartoon"
     },
     {
         title: "TV-Series",
         icon: <Tv />,
-        path: "/test"
+        path: "/tv-series"
     },
     {
         title: " Genre",
         icon: <Menu />,
-        path: "/test"
+        path: ""
     },
 ]
 const Header = () => {
