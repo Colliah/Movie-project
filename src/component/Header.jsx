@@ -39,9 +39,11 @@ const Header = () => {
             <div className='ml-20' >
                 <img width="100" height="100" src="https://img.icons8.com/clouds/100/like--v1.png" alt="logo" />
             </div>
-            <div className='flex items-center '>
-                <input type="search" name="" id="" placeholder='Movie name wanna look for ?' className='w-80 h-8 p-2 rounded-md outline-none' />
-                {/* <Search /> */}
+            <div className='flex items-center gap-x-2 '>
+                <input type="search" name="" id="" placeholder='Movie name wanna look for ?' className='w-80 h-10 p-2 rounded-md outline-none' />
+                <div>
+                    <input type="button" value="Seach" className='p-2 bg-black text-white rounded-md cursor-pointer'  />
+                </div>
             </div>
             <div className='flex space-x-16 items-center mr-40'>
                 {about.map((item, index) => (
