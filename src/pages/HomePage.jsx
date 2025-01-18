@@ -19,11 +19,11 @@ const HomePage = () => {
         fetchMovies();
     }, [])
     return (
-        <div className=''>
+        <div className=' bg-white'>
             <div className=''>
                 {/* <Slider items={movies} path={path} /> */}
             </div>
-            <div className='mt-10'>
+            <div className='p-6 text-black'>
                 <MovieList items={movies} path={path} />
             </div>
         </div>
