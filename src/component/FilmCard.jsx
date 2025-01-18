@@ -1,16 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const FilmCard = ({ name, slug, image }) => {
+const FilmCard = ({ name, image, slug }) => {
     return (
-        <div className="max-w-sm bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        <Link to={`/detail-mov/${slug}`} className="w-52">
             <div>
-                <img src={image} alt={name} className="w-full h-48 object-cover" />
+                <img src={image} alt={name} className="w-52 h-80 object-cover" />
             </div>
-            <div className="p-4">
-                <h2 className="text-lg font-bold text-gray-800">{name}</h2>
-                <p className="text-gray-500 text-sm mt-1">{slug}</p>
+            <div className="w-full">
+                <p className="text-lg font-bold text-center text-ellipsis whitespace-nowrap overflow-hidden">{name}</p>
             </div>
-        </div>
+        </Link>
     );
 };
 

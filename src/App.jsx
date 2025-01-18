@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import HomePage from "./pages/HomePage"
 import MainLayout from "./Layout/MainLayout"
+import Testpage from "./pages/Testpage"
+import DetailsMoviePage from "./pages/DetailsMoviePage"
 
 
 function App() {
@@ -8,8 +10,9 @@ function App() {
     <Routes>
       <Route element={<MainLayout />}>
         <Route path="/" element={<HomePage />} />
-        {/* <Route path="test" element={<Testpage />} /> */}
+        <Route path="/detail-mov/:movieSlug" element={<DetailsMoviePage />} />
       </Route>
+
     </Routes>
   )
 }
