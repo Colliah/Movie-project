@@ -4,9 +4,9 @@ import { Outlet } from 'react-router-dom'
 
 const MainLayout = () => {
     return (
-        <div>
+        <div className='h-screen w-screen overflow-y-scroll'>
             <Header />
-            <div>
+            <div className='w-full h-full'>
                 <Outlet />
             </div>
         </div>

@@ -35,7 +35,7 @@ const about = [
 ]
 const Header = () => {
     return (
-        <div className=' flex bg-white text-black items-center justify-between'>
+        <div className='w-full flex bg-white text-black items-center justify-between'>
             <div className='ml-20' >
                 <Link to="/">
                     <img width="100" height="100" src="https://thumbs.dreamstime.com/b/i-miss-you-sad-emoji-symbol-black-white-colors-loving-people-who-their-loved-ones-wanna-give-design-to-show-229552075.jpg" alt="logo" className='bg-white' />
