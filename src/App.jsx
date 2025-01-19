@@ -1,7 +1,6 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import HomePage from "./pages/HomePage"
 import MainLayout from "./Layout/MainLayout"
-import Testpage from "./pages/Testpage"
 import DetailsMoviePage from "./pages/DetailsMoviePage"
 
 
@@ -11,6 +10,15 @@ function App() {
       <Route element={<MainLayout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/detail-mov/:movieSlug" element={<DetailsMoviePage />} />
+
+        <Route path="/:slug" element={<HomePage />} />
+        <Route path="/:slug/:page" element={<HomePage />} />
+
+        <Route path="/the-loai/:slug/" element={<HomePage />} />
+        <Route path="/the-loai/:slug/:page" element={<HomePage />} />
+
+
+
       </Route>
 
     </Routes>
