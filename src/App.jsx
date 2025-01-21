@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import HomePage from "./pages/HomePage"
-import MainLayout from "./Layout/MainLayout"
 import DetailsMoviePage from "./pages/DetailsMoviePage"
+import MainLayout from "./layout/MainLayout"
 
 
 function App() {
