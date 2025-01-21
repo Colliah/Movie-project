@@ -12,8 +12,8 @@ function App() {
         <Route path="/detail-mov/:movieSlug" element={<DetailsMoviePage />} />
         <Route path="/detail-mov/:movieSlug/:ep" element={<DetailsMoviePage />} />
 
-        <Route path="/:slug" element={<HomePage />} />
-        <Route path="/:slug/:page" element={<HomePage />} />
+        {/* <Route path="/:slug" element={<HomePage />} />
+        <Route path="/:slug/:page" element={<HomePage />} /> */}
 
         <Route path="/danh-sach/:slug" element={<HomePage />} />
         <Route path="/danh-sach/:slug/:page" element={<HomePage />} />

@@ -11,22 +11,22 @@ const about = [
     {
         title: "Movie",
         icon: <Clapperboard />,
-        path: "/phim-bo"
+        path: "/danh-sach/phim-bo"
     },
     {
         title: "Film",
         icon: <Film />,
-        path: "/phim-le"
+        path: "/danh-sach/phim-le"
     },
     {
         title: " Cartoon",
         icon: <Popcorn />,
-        path: "/hoat-hinh"
+        path: "/danh-sach/hoat-hinh"
     },
     {
         title: "TV-Series",
         icon: <Tv />,
-        path: "/tv-shows"
+        path: "/danh-sach/tv-shows"
     },
     {
         title: " Genre",
@@ -83,7 +83,6 @@ const Header = () => {
                             {item.icon}
                             {item.title}
                         </Link>
-
                         {item.children && (
                             <div
                                 className={`absolute top-6 right-0 bg-gray-200 p-4 pt-4  w-max z-50 rounded-md shadow-lg grid grid-cols-3 gap-4 transition-opacity duration-300 ${showMenuIndex === index ? "opacity-100 visible" : "opacity-0 invisible"
@@ -102,8 +101,6 @@ const Header = () => {
                                 ))}
                             </div>
                         )}
-
-
                     </div>
                 ))}
             </div>

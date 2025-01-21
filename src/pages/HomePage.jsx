@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import MovieList from '../component/MovieList'
-import Slider from '../component/Slider'
 import { movieApi } from '../api/movie'
 import { useParams } from 'react-router-dom'
 import Pagination from '../component/Pagination'
+import Loading from '../component/Loading'
 
 const path = "https://img.ophim.live/uploads/movies/"
 
@@ -12,6 +12,7 @@ const isCategoryPage = (pathname) => {
 }
 
 const HomePage = () => {
+
     const [fetchState, setFetchState] = useState({
         path: null,
         movies: [],
@@ -64,13 +65,21 @@ const HomePage = () => {
             <div className='p-6 text-black'>
                 <MovieList items={fetchState.movies} path={path} />
             </div>
-            <div>
-                <Pagination
-                    currentPage={fetchState.totalPages.currentPage}
-                    totalPages={Math.ceil(fetchState.totalPages.totalItems / fetchState.totalPages.itemsPerPage)}
-                    baseUrl={fetchState.path}
-                />
-            </div>
+            {
+                //trang chu ko cho chuyen trang
+                slug !== undefined && fetchState.totalPages.totalItems > 0 && (
+                    <div>
+                        <Pagination
+                            currentPage={fetchState.totalPages.currentPage}
+                            totalPages={Math.ceil(fetchState.totalPages.totalItems / fetchState.totalPages.itemsPerPage)}
+                            baseUrl={fetchState.path}
+                        />
+                    </div>
+                )
+            }
+            {/* <div className="flex justify-center items-center h-screen">
+                <Loading />
+            </div> */}
         </div>
     );
 };
