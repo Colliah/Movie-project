@@ -27,8 +27,11 @@ const HomePage = () => {
     const { slug, page: pageParam } = useParams();
     const currentPage = parseInt(pageParam || "1", 10);
 
+    const [loading, setLoading] = useState(false)//loading
+
     useEffect(() => {
         const fetchMovies = async () => {
+            setLoading(true)
             try {
                 let res;
                 if (isCategoryPage(location.pathname) && slug) {
@@ -53,33 +56,45 @@ const HomePage = () => {
             } catch (error) {
                 console.error(error);
             }
+            finally {
+                setLoading(false)
+            }
         };
         fetchMovies();
     }, [slug, currentPage]);
 
     return (
         <div className=' bg-white py-10'>
-            <div className=''>
-                {/* <Slider items={movies} path={path} /> */}
-            </div>
-            <div className='p-6 text-black'>
-                <MovieList items={fetchState.movies} path={path} />
-            </div>
             {
-                //trang chu ko cho chuyen trang
-                slug !== undefined && fetchState.totalPages.totalItems > 0 && (
-                    <div>
-                        <Pagination
-                            currentPage={fetchState.totalPages.currentPage}
-                            totalPages={Math.ceil(fetchState.totalPages.totalItems / fetchState.totalPages.itemsPerPage)}
-                            baseUrl={fetchState.path}
-                        />
-                    </div>
-                )
-            }
-            {/* <div className="flex justify-center items-center h-screen">
+                loading ? (
+                    <Loading />
+                ) : (
+                    <>
+                        <div className=''>
+                            {/* <Slider items={movies} path={path} /> */}
+                        </div>
+                        <div className='p-6 text-black'>
+                            <MovieList items={fetchState.movies} path={path} />
+                        </div>
+                        {
+                            //trang chu ko cho chuyen trang
+                            slug !== undefined && fetchState.totalPages.totalItems > 0 && (
+                                <div>
+                                    <Pagination
+                                        currentPage={fetchState.totalPages.currentPage}
+                                        totalPages={Math.ceil(fetchState.totalPages.totalItems / fetchState.totalPages.itemsPerPage)}
+                                        baseUrl={fetchState.path}
+                                    />
+                                </div>
+                            )
+                        }
+                        {/* <div className="flex justify-center items-center h-screen">
                 <Loading />
             </div> */}
+                    </>
+                )
+
+            }
         </div>
     );
 };
