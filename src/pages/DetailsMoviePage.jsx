@@ -34,7 +34,7 @@ const DetailsMoviePage = () => {
             }
         }
         fetchMovies();
-    }, [])
+    }, [slug])
 
     const handleEpisode = (link) => {
         setVideoURL(link);
