@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Pagination = ({ currentPage, totalPages, baseUrl }) => {
     const renderPageNumbers = () => {
@@ -12,21 +12,25 @@ const Pagination = ({ currentPage, totalPages, baseUrl }) => {
                 <li key="start" className="mx-1">
                     <Link
                         to={`/${baseUrl}/page=1`}
-                        className="px-3 py-1 border rounded-md hover:bg-blue-100"
+                        className="px-3 py-1 border rounded-md  text-black dark:text-white"
                     >
                         1
                     </Link>
-                    {startPage > 2 && <span className="px-2">...</span>}
+                    {startPage > 2 && <span className="px-2 dark:text-white">...</span>}
                 </li>
             );
         }
 
         for (let i = startPage; i <= endPage; i++) {
             pages.push(
-                <li key={i} className={`mx-1 ${i === currentPage ? 'font-bold text-blue-600' : ''}`}>
+                <li
+                    key={i}
+                    className={`mx-1 ${i === currentPage ? "font-bold underline text-black dark:text-white" : ""
+                        }`}
+                >
                     <Link
                         to={`/${baseUrl}/${i}`}
-                        className="px-3 py-1 border rounded-md hover:bg-blue-100"
+                        className="px-3 py-1 border rounded-md  hover:bg-blue-100  dark:hover:bg-gray-700 text-black dark:text-white"
                     >
                         {i}
                     </Link>
@@ -36,13 +40,13 @@ const Pagination = ({ currentPage, totalPages, baseUrl }) => {
 
         if (endPage < totalPages) {
             if (endPage < totalPages - 1) {
-                pages.push(<span key="dots" className="px-2">...</span>);
+                pages.push(<span key="dots" className="px-2  dark:text-white">...</span>);
             }
             pages.push(
                 <li key={totalPages} className="mx-1">
                     <Link
                         to={`/${baseUrl}/${totalPages}`}
-                        className="px-3 py-1 border rounded-md hover:bg-blue-100"
+                        className="px-3 py-1 border rounded-md  hover:bg-blue-100 dark:hover:bg-gray-700 text-black dark:text-white"
                     >
                         {totalPages}
                     </Link>
@@ -60,7 +64,7 @@ const Pagination = ({ currentPage, totalPages, baseUrl }) => {
                     <li className="mx-1">
                         <Link
                             to={`/${baseUrl}/${currentPage - 1}`}
-                            className="px-3 py-1 border rounded-md hover:bg-blue-100"
+                            className="px-3 py-1 border rounded-md hover:bg-blue-100 dark:hover:bg-gray-700 text-black dark:text-white"
                         >
                             Previous
                         </Link>
@@ -71,7 +75,7 @@ const Pagination = ({ currentPage, totalPages, baseUrl }) => {
                     <li className="mx-1">
                         <Link
                             to={`/${baseUrl}/${currentPage + 1}`}
-                            className="px-3 py-1 border rounded-md hover:bg-blue-100"
+                            className="px-3 py-1 border rounded-md  hover:bg-blue-100 dark:hover:bg-gray-700 text-black dark:text-white"
                         >
                             Next
                         </Link>

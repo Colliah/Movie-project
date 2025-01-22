@@ -42,7 +42,7 @@ const DetailsMoviePage = () => {
     }
 
     return (
-        <div className='w-full h-full relative py-10 '>
+        <div className='w-full h-full relative py-24 '>
             {/* Vùng chứa poster_url */}
             {
                 loading ? (
@@ -52,7 +52,7 @@ const DetailsMoviePage = () => {
                         <BackgroundMov imgbg={`${path}${movies.poster_url}`} />
                         <MovieInfo item={movies} />
                         <Episode items={movies} onEpisodeClick={handleEpisode} />
-                        <div className='w-full bg-black mt-44'>
+                        <div className='w-full bg-black mt-28'>
                             <Video videoUrl={videoURL} />
                         </div>
                     </>

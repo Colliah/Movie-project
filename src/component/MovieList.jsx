@@ -6,8 +6,8 @@ const path = "https://img.ophim.live/uploads/movies/"
 
 const MovieList = ({ items, path }) => {
     return (
-        <div className=" bg-white">
-            <div className="container mx-auto flex flex-col ">
+        <div className=" bg-white dark:bg-black dark:text-white">
+            <div className="container mx-auto flex  flex-col ">
                 <div className="grid grid-cols-6 gap-4 place-items-center">
                     {items.length > 0 ? (
                         items.map((movie, index) => (

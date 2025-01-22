@@ -64,7 +64,7 @@ const HomePage = () => {
     }, [slug, currentPage]);
 
     return (
-        <div className=' bg-white py-10'>
+        <div className=' bg-white dark:bg-black py-10'>
             {
                 loading ? (
                     <Loading />
@@ -89,8 +89,8 @@ const HomePage = () => {
                             )
                         }
                         {/* <div className="flex justify-center items-center h-screen">
-                <Loading />
-            </div> */}
+                            <Loading />
+                        </div> */}
                     </>
                 )
 

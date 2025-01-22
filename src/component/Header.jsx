@@ -4,11 +4,11 @@ import { Link, NavLink } from 'react-router-dom'
 import SearchSite from './SearchSite'
 
 const about = [
-    {
-        title: "Home",
-        icon: <House />,
-        path: "/"
-    },
+    // {
+    //     title: "Home",
+    //     icon: <House />,
+    //     path: "/"
+    // },
     {
         title: "Movie",
         icon: <Clapperboard />,
@@ -65,61 +65,69 @@ const Header = () => {
     const [isSearchOpen, setIsSearchOpen] = useState(false);//search
     const toggleSearchSite = () => setIsSearchOpen(!isSearchOpen);//search
 
-    return (
-        <div className='container w-full flex bg-white text-black items-center justify-between'>
-            <div className='ml-20' >
-                <Link to="/">
-                    <img width="100" height="100" src="https://thumbs.dreamstime.com/b/i-miss-you-sad-emoji-symbol-black-white-colors-loving-people-who-their-loved-ones-wanna-give-design-to-show-229552075.jpg" alt="logo" className='bg-white' />
-                </Link>
-            </div>
-            <div className='flex space-x-16 items-center mr-40'>
-                {about.map((item, index) => (
-                    <div
-                        key={index}
-                        onMouseEnter={() => item.children && setShowMenuIndex(index)}
-                        onMouseLeave={() => setShowMenuIndex(null)}
-                        className="relative"
-                    >
-                        <Link to={item.path || "#"} className='flex font-bold gap-x-2'>
-                            {item.icon}
-                            {item.title}
-                        </Link>
-                        {item.children && (
-                            <div
-                                className={`absolute top-6 right-0 bg-gray-200 p-4 pt-4  w-max z-50 rounded-md shadow-lg grid grid-cols-3 gap-4 transition-opacity duration-300 ${showMenuIndex === index ? "opacity-100 visible" : "opacity-0 invisible"
-                                    }`}
-                            >
-                                {item.children.map((child, childIndex) => (
-                                    <NavLink
-                                        key={childIndex}
-                                        to={child.path}
-                                        className={({ isActive }) =>
-                                            `text-black font-bold ${isActive ? "underline" : ""}`
-                                        }
-                                    >
-                                        {child.title}
-                                    </NavLink>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                ))}
-            </div>
 
-            <div className='flex items-center gap-x-2 '>
-                <div
-                    onClick={toggleSearchSite}
-                    className='cursor-pointer'
-                >
-                    <Search />
+    return (
+        <div className='dark:bg-black dark:text-white'>
+            <div className='container mx-auto w-full flex bg-white text-black items-center justify-between dark:bg-black dark:text-white'>
+                <div>
+                    <Link to="/">
+                        <img src="../../public/Image/blacklogo.png" alt="logo" className='w-28' />
+                        {/* <img src="../../public/Image/whitelogo.png" alt="logo" className='w-28' /> */}
+
+                    </Link>
+                </div>
+                <div className='flex space-x-16 items-center mr-40'>
+                    {about.map((item, index) => (
+                        <div
+                            key={index}
+                            onMouseEnter={() => item.children && setShowMenuIndex(index)}
+                            onMouseLeave={() => setShowMenuIndex(null)}
+                            className="relative"
+                        >
+                            <Link to={item.path || "#"} className='flex font-bold gap-x-2'>
+                                {item.icon}
+                                {item.title}
+                            </Link>
+                            {item.children && (
+                                <div
+                                    className={`absolute top-6 right-0 bg-gray-200 p-4 pt-4  w-max z-50 rounded-md shadow-lg grid grid-cols-3 gap-4 transition-opacity duration-300 ${showMenuIndex === index ? "opacity-100 visible" : "opacity-0 invisible"
+                                        }`}
+                                >
+                                    {item.children.map((child, childIndex) => (
+                                        <NavLink
+                                            key={childIndex}
+                                            to={child.path}
+                                            className={({ isActive }) =>
+                                                `text-black font-bold ${isActive ? "underline" : ""}`
+                                            }
+                                        >
+                                            {child.title}
+                                        </NavLink>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    ))}
+                </div>
+
+                <div className='flex items-center gap-x-2 '>
+                    <div
+                        onClick={toggleSearchSite}
+                        className='cursor-pointer'
+                    >
+                        <Search />
+                    </div>
+                </div>
+                <SearchSite
+                    isSearchOpen={isSearchOpen}
+                    setIsSearchOpen={setIsSearchOpen}
+                    toggleSearchSite={toggleSearchSite}
+
+                />
+                <div>
+                    {/* darkmode */}
                 </div>
             </div>
-            <SearchSite
-                isSearchOpen={isSearchOpen}
-                setIsSearchOpen={setIsSearchOpen}
-                toggleSearchSite={toggleSearchSite}
-                
-            />
         </div>
     )
 }

@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 
 const Loading = () => {
     return (
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center items-center h-screen ">
             <motion.div
-                className="text-8xl font-bold text-black"
+                className="text-8xl font-bold text-black dark:text-white"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{
