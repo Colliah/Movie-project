@@ -69,7 +69,7 @@ const Header = () => {
                 <div>
                     <Link to="/">
                         <img
-                            src={isDarkMode ? "../../public/Image/blacklogo.png" : "../../public/Image/whitelogo.png"}
+                            src={isDarkMode ? "/Image/blacklogo.png" : "/Image/whitelogo.png"}
                             // src={isDarkMode ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9FumO9nuURSgAVA78eMfhYElZLtUDgvJaAA&s" : "https://dynamic.brandcrowd.com/asset/logo/00606750-f97c-45df-bc9c-f6d2b199eb36/logo?logoTemplateVersion=2&v=638694074541070000"}
                             alt="logo"
                             className='w-28'
