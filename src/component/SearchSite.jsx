@@ -47,25 +47,25 @@ const SearchSite = ({ isSearchOpen, setIsSearchOpen, toggleSearchSite, }) => {
             onClose={() => setIsSearchOpen(false)}
             position="center"
         >
-            <div className="relative bg-white h-[68%] w-[72%] p-4 flex flex-col items-center space-y-6 rounded-lg border">
+            <div className="relative bg-white h-[68%] w-[72%] p-4 flex flex-col items-center space-y-6 rounded-lg border dark:bg-black">
 
                 <div
                     onClick={handleCloseSearch}
-                    className="absolute top-2 right-2 transition-transform duration-300 text-black hover:rotate-90 "
+                    className="absolute top-2 right-2 transition-transform duration-300 text-black hover:rotate-90 dark:text-white "
                 >
                     <X size={32} />
                 </div>
-                <div className="flex justify-between items-center text-black border border-black rounded-xl w-[440px] overflow-hidden p-2">
+                <div className="flex justify-between items-center text-black border border-black rounded-xl w-[440px] overflow-hidden p-2 dark:border-white dark:text-white">
                     <input
                         type="text"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
-                        className="w-full outline-none "
+                        className="w-full outline-none dark:text-white dark:bg-black "
                         placeholder='Movie name ?'
                     />
                     <Search />
                 </div>
-                <div className="text-black">
+                <div className="text-black dark:text-white">
                     {query.trim() === "" ? (
                         "Not searched yet"
                     ) : (

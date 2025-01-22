@@ -1,14 +1,11 @@
-import { Clapperboard, Film, House, Menu, Popcorn, Search, Tv } from 'lucide-react'
-import React, { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
-import SearchSite from './SearchSite'
+import React, { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { useTheme } from './ThemeContext';  // import ThemeContext
+import SearchSite from './SearchSite';
+import { Clapperboard, Film, Menu, Popcorn, Search, Tv } from 'lucide-react';
 
 const about = [
-    // {
-    //     title: "Home",
-    //     icon: <House />,
-    //     path: "/"
-    // },
+    // Các mục trong menu của bạn
     {
         title: "Movie",
         icon: <Clapperboard />,
@@ -20,7 +17,7 @@ const about = [
         path: "/danh-sach/phim-le"
     },
     {
-        title: " Cartoon",
+        title: "Cartoon",
         icon: <Popcorn />,
         path: "/danh-sach/hoat-hinh"
     },
@@ -30,7 +27,7 @@ const about = [
         path: "/danh-sach/tv-shows"
     },
     {
-        title: " Genre",
+        title: "Genre",
         icon: <Menu />,
         children: [
             { title: "Action", path: "/the-loai/hanh-dong" },
@@ -57,23 +54,26 @@ const about = [
             { title: "18+ Movies", path: "/the-loai/phim-18" },
         ],
     },
-]
+];
 
 const Header = () => {
     const [showMenuIndex, setShowMenuIndex] = useState(null);
+    const [isSearchOpen, setIsSearchOpen] = useState(false); // search
+    const { isDarkMode, toggleTheme } = useTheme(); // Lấy trạng thái dark mode từ context
 
-    const [isSearchOpen, setIsSearchOpen] = useState(false);//search
-    const toggleSearchSite = () => setIsSearchOpen(!isSearchOpen);//search
-
+    const toggleSearchSite = () => setIsSearchOpen(!isSearchOpen); // search
 
     return (
-        <div className='dark:bg-black dark:text-white'>
+        <div className={`dark:bg-black dark:text-white ${isDarkMode ? "dark" : ""}`}>
             <div className='container mx-auto w-full flex bg-white text-black items-center justify-between dark:bg-black dark:text-white'>
                 <div>
                     <Link to="/">
-                        <img src="../../public/Image/blacklogo.png" alt="logo" className='w-28' />
-                        {/* <img src="../../public/Image/whitelogo.png" alt="logo" className='w-28' /> */}
-
+                        <img
+                            src={isDarkMode ? "../../public/Image/blacklogo.png" : "../../public/Image/whitelogo.png"}
+                            // src={isDarkMode ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9FumO9nuURSgAVA78eMfhYElZLtUDgvJaAA&s" : "https://dynamic.brandcrowd.com/asset/logo/00606750-f97c-45df-bc9c-f6d2b199eb36/logo?logoTemplateVersion=2&v=638694074541070000"}
+                            alt="logo"
+                            className='w-28'
+                        />
                     </Link>
                 </div>
                 <div className='flex space-x-16 items-center mr-40'>
@@ -90,8 +90,7 @@ const Header = () => {
                             </Link>
                             {item.children && (
                                 <div
-                                    className={`absolute top-6 right-0 bg-gray-200 p-4 pt-4  w-max z-50 rounded-md shadow-lg grid grid-cols-3 gap-4 transition-opacity duration-300 ${showMenuIndex === index ? "opacity-100 visible" : "opacity-0 invisible"
-                                        }`}
+                                    className={`absolute top-6 right-0 bg-gray-200 p-4 pt-4  w-max z-50 rounded-md shadow-lg grid grid-cols-3 gap-4 transition-opacity duration-300 ${showMenuIndex === index ? "opacity-100 visible" : "opacity-0 invisible"}`}
                                 >
                                     {item.children.map((child, childIndex) => (
                                         <NavLink
@@ -110,7 +109,7 @@ const Header = () => {
                     ))}
                 </div>
 
-                <div className='flex items-center gap-x-2 '>
+                <div className='flex items-center gap-x-2'>
                     <div
                         onClick={toggleSearchSite}
                         className='cursor-pointer'
@@ -118,18 +117,20 @@ const Header = () => {
                         <Search />
                     </div>
                 </div>
+
                 <SearchSite
                     isSearchOpen={isSearchOpen}
                     setIsSearchOpen={setIsSearchOpen}
                     toggleSearchSite={toggleSearchSite}
-
                 />
-                <div>
-                    {/* darkmode */}
+
+                {/* Thêm nút chuyển đổi Dark Mode */}
+                <div className="flex items-center cursor-pointer" onClick={toggleTheme}>
+                    <span className="text-xl">{isDarkMode ? "🌙" : "☀️"}</span> {/* Biểu tượng chuyển chế độ */}
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Header;
