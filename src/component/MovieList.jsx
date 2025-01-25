@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import FilmCard from "./FilmCard";
-import { movieApi } from "../api/movie";
-
-const path = "https://img.ophim.live/uploads/movies/"
 
 const MovieList = ({ items, path }) => {
     return (
-        <div className=" bg-white dark:bg-black dark:text-white">
-            <div className="container mx-auto flex  flex-col ">
-                <div className="grid grid-cols-6 gap-4 place-items-center">
+        <div className="bg-white dark:bg-black dark:text-white">
+            <div className="container mx-auto flex flex-col ">
+                <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6   ">
                     {items.length > 0 ? (
                         items.map((movie, index) => (
                             <FilmCard

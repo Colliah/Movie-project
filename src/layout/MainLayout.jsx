@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 
 const MainLayout = () => {
     return (
-        <div className='h-screen w-screen  overflow-y-scroll'>
+        <div className='h-screen w-screen  bg-white dark:bg-black overflow-y-scroll'>
             <div>
                 <Header />
             </div>

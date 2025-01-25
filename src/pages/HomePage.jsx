@@ -4,6 +4,7 @@ import { movieApi } from '../api/movie'
 import { useParams } from 'react-router-dom'
 import Pagination from '../component/Pagination'
 import Loading from '../component/Loading'
+import Sidebar from '../component/Sidebar'
 
 const path = "https://img.ophim.live/uploads/movies/"
 
@@ -91,6 +92,9 @@ const HomePage = () => {
                         {/* <div className="flex justify-center items-center h-screen">
                             <Loading />
                         </div> */}
+                        <div>
+                            <Sidebar />
+                        </div>
                     </>
                 )
 

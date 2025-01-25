@@ -13,18 +13,18 @@ const MovieInfo = ({ item }) => {
         setIsOverviewVisible((prev) => !prev);
     };
     return (
-        <div className='container mx-auto flex gap-8'>
-            <div className=' -z-10 flex items-center justify-center text-white px-4 flex-shrink-0'>
+        <div className='container mx-auto flex flex-col text-white bg-black  gap-8 md:flex-col 2xl:flex-row '>
+            <div className=' z-10 flex items-center justify-center  px-4 flex-shrink-0'>
                 <img
                     src={`${path}${item.thumb_url}`}
                     alt={item.name}
-                    className="h-[520px] object-cover rounded-lg"
+                    className="h-[160px] border-2 object-cover rounded-lg md:h-[280px] 2xl:h-[520px]  "
                 />
             </div>
-            <div className='z-10 top-20 w-full h-full flex flex-col'>
-                <h1 className="text-5xl font-bold text-white text-left">{item.name}</h1>
+            <div className='z-10 top-20  w-full h-full flex flex-col  '>
+                <h1 className="text-4xl  font-bold  text-center ">{item.name}</h1>
                 <div className='relative'>
-                    <div className='flex text-white gap-4 mt-10  text-xl'>
+                    <div className='flex  gap-4 mt-10 ml-4 text-xl'>
                         Content
                         <button onClick={() => toggleOverview(false)}>
                             <ClipboardType />
@@ -41,36 +41,36 @@ const MovieInfo = ({ item }) => {
                         )
                     }
                 </div>
-                <div className='flex gap-32 mt-10  text-xl'>
-                    <div className='text-white'>
+                <div className='mt-10 gap-x-20 space-y-2 ml-4 text-xl md:flex gap-32'>
+                    <div className=''>
                         Quality: {item.quality}
                     </div>
-                    <div className='text-white'>
+                    <div className=''>
                         Release: {item.year}
                     </div>
-                    <div className='text-white'>
+                    <div className=''>
                         Language: {item.lang}
                     </div>
-                    <div className='text-white'>
+                    <div className=''>
                         Duration: {item.time}
                     </div>
                 </div>
-                <div className='flex gap-32 mt-10  text-xl'>
-                    <div className='text-white'>
+                <div className='mt-10 gap-x-20 space-y-2 ml-4 text-xl md:flex gap-32'>
+                    <div className=''>
                         Category: {item.category?.map((cate) => cate.name).join(", ")}
                     </div>
-                    <div className='text-white'>
+                    <div className=''>
                         Status: {item.status}
                     </div>
                 </div>
-                <div className='flex gap-32 mt-10  text-xl'>
-                    <div className='text-white'>
+                <div className='mt-10 gap-x-20 space-y-2 ml-4 text-xl md:flex gap-32'>
+                    <div className=''>
                         Actor: {item.actor?.join(", ")}
                     </div>
                 </div>
-                <div className='flex gap-32 mt-10  text-xl'>
-                    <div className='text-white'>
-                        <p className="text-white mb-4">Episodes: {item.episode_total}</p>
+                <div className='mt-10 gap-x-20 space-y-2 ml-4 text-xl md:flex gap-32'>
+                    <div className=''>
+                        <p className=" mb-4">Episodes: {item.episode_total}</p>
                     </div>
                 </div>
             </div>

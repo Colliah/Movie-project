@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useTheme } from './ThemeContext';  // import ThemeContext
-import SearchSite from './SearchSite';
+// import SearchSite from './SearchSite';
 import { Clapperboard, Film, Menu, Popcorn, Search, Tv } from 'lucide-react';
+import Sidebar from './Sidebar'
 
 const about = [
     // Các mục trong menu của bạn
@@ -65,18 +66,20 @@ const Header = () => {
 
     return (
         <div className={`dark:bg-black dark:text-white ${isDarkMode ? "dark" : ""}`}>
-            <div className='container mx-auto w-full flex bg-white text-black items-center justify-between dark:bg-black dark:text-white'>
-                <div>
+            <div className="container mx-auto w-full flex flex-wrap items-center justify-between bg-white text-black dark:bg-black dark:text-white px-4">
+                {/* Logo */}
+                <div className="flex-shrink-0">
                     <Link to="/">
                         <img
                             src={isDarkMode ? "/Image/blacklogo.png" : "/Image/whitelogo.png"}
-                            // src={isDarkMode ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9FumO9nuURSgAVA78eMfhYElZLtUDgvJaAA&s" : "https://dynamic.brandcrowd.com/asset/logo/00606750-f97c-45df-bc9c-f6d2b199eb36/logo?logoTemplateVersion=2&v=638694074541070000"}
                             alt="logo"
-                            className='w-28'
+                            className="w-16 md:w-20 lg:w-24 xl:w-28"
                         />
                     </Link>
                 </div>
-                <div className='flex space-x-16 items-center mr-40'>
+
+                {/* Menu chính */}
+                <div className="hidden md:flex space-x-8 lg:space-x-20 lg:ml-8 xl:space-x-28 text-sm items-center mr-auto ">
                     {about.map((item, index) => (
                         <div
                             key={index}
@@ -84,13 +87,14 @@ const Header = () => {
                             onMouseLeave={() => setShowMenuIndex(null)}
                             className="relative"
                         >
-                            <Link to={item.path || "#"} className='flex font-bold gap-x-2'>
+                            <Link to={item.path || "#"} className="flex font-bold gap-x-2">
                                 {item.icon}
                                 {item.title}
                             </Link>
                             {item.children && (
                                 <div
-                                    className={`absolute top-6 right-0 bg-gray-200 p-4 pt-4  w-max z-50 rounded-md shadow-lg grid grid-cols-3 gap-4 transition-opacity duration-300 ${showMenuIndex === index ? "opacity-100 visible" : "opacity-0 invisible"}`}
+                                    className={`absolute top-8 right-0 bg-gray-200 p-4 w-max z-50 rounded-md shadow-lg grid grid-cols-3 gap-4 transition-opacity duration-300 ${showMenuIndex === index ? "opacity-100 visible" : "opacity-0 invisible"
+                                        }`}
                                 >
                                     {item.children.map((child, childIndex) => (
                                         <NavLink
@@ -109,27 +113,32 @@ const Header = () => {
                     ))}
                 </div>
 
-                <div className='flex items-center gap-x-2'>
-                    <div
-                        onClick={toggleSearchSite}
-                        className='cursor-pointer'
-                    >
-                        <Search />
+                {/* Nút tìm kiếm */}
+                <div className='md:flex gap-x-4 xl:gap-x-40'>
+                    {/* <div className="hidden md:flex items-center gap-x-2">
+                        <div onClick={toggleSearchSite} className="cursor-pointer">
+                            <Search />
+                        </div>
+                    </div> */}
+
+                    {/* Component tìm kiếm */}
+                    {/* <SearchSite
+                        isSearchOpen={isSearchOpen}
+                        setIsSearchOpen={setIsSearchOpen}
+                        toggleSearchSite={toggleSearchSite}
+                    /> */}
+
+                    {/* Nút chuyển đổi Dark Mode */}
+                    <div className="hidden md:flex items-center cursor-pointer" onClick={toggleTheme}>
+                        <span className="text-xl">{isDarkMode ? "🌙" : "☀️"}</span>
                     </div>
                 </div>
-
-                <SearchSite
-                    isSearchOpen={isSearchOpen}
-                    setIsSearchOpen={setIsSearchOpen}
-                    toggleSearchSite={toggleSearchSite}
-                />
-
-                {/* Thêm nút chuyển đổi Dark Mode */}
-                <div className="flex items-center cursor-pointer" onClick={toggleTheme}>
-                    <span className="text-xl">{isDarkMode ? "🌙" : "☀️"}</span> {/* Biểu tượng chuyển chế độ */}
+                <div className='z-50'>
+                    <Sidebar />
                 </div>
             </div>
         </div>
+
     );
 };
 

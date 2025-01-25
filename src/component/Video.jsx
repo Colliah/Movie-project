@@ -5,7 +5,7 @@ const Video = ({ videoUrl }) => {
             {videoUrl ? (
                 <iframe
                     src={videoUrl}
-                    className="h-[600px] aspect-video"
+                    className="h-[180px] aspect-video md:h-[400px] lg:h-[550px] xl:h-[700px] "
                     allowFullScreen
                     title="Video Player"
                 />
