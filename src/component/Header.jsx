@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useTheme } from './ThemeContext';  // import ThemeContext
-// import SearchSite from './SearchSite';
+import SearchSite from './SearchSite';
 import { Clapperboard, Film, Menu, Popcorn, Search, Tv } from 'lucide-react';
 import Sidebar from './Sidebar'
 
@@ -115,18 +115,18 @@ const Header = () => {
 
                 {/* Nút tìm kiếm */}
                 <div className='md:flex gap-x-4 xl:gap-x-40'>
-                    {/* <div className="hidden md:flex items-center gap-x-2">
+                    <div className="hidden md:flex items-center gap-x-2">
                         <div onClick={toggleSearchSite} className="cursor-pointer">
                             <Search />
                         </div>
-                    </div> */}
+                    </div>
 
                     {/* Component tìm kiếm */}
-                    {/* <SearchSite
+                    <SearchSite
                         isSearchOpen={isSearchOpen}
                         setIsSearchOpen={setIsSearchOpen}
                         toggleSearchSite={toggleSearchSite}
-                    /> */}
+                    />
 
                     {/* Nút chuyển đổi Dark Mode */}
                     <div className="hidden md:flex items-center cursor-pointer" onClick={toggleTheme}>

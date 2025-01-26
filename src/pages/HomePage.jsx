@@ -92,9 +92,9 @@ const HomePage = () => {
                         {/* <div className="flex justify-center items-center h-screen">
                             <Loading />
                         </div> */}
-                        <div>
+                        {/* <div>
                             <Sidebar />
-                        </div>
+                        </div> */}
                     </>
                 )
 

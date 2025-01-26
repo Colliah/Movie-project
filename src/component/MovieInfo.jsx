@@ -22,9 +22,9 @@ const MovieInfo = ({ item }) => {
                 />
             </div>
             <div className='z-10 top-20  w-full h-full flex flex-col  '>
-                <h1 className="text-4xl  font-bold  text-center ">{item.name}</h1>
+                <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold  text-center ">{item.name}</h1>
                 <div className='relative'>
-                    <div className='flex  gap-4 mt-10 ml-4 text-xl'>
+                    <div className='flex  gap-4 mt-10 ml-4 text-md xl:text-xl'>
                         Content
                         <button onClick={() => toggleOverview(false)}>
                             <ClipboardType />
@@ -33,15 +33,15 @@ const MovieInfo = ({ item }) => {
                     {
                         isOverviewVisible && (
                             <div
-                                className=" absolute top-full mt-2 left-0 bg-gray-800 text-gray-200  p-4 rounded-lg shadow-lg w-full z-20"
+                                className=" absolute top-full mt-2 left-0 bg-gray-800 text-gray-200  p-4 rounded-lg shadow-lg w-full z-20 xl:text-xl"
                                 onClick={() => setIsOverviewVisible(false)}
                             >
-                                <div className="text-lg">{removePTags(item.content)}</div>
+                                <div className="text-md">{removePTags(item.content)}</div>
                             </div>
                         )
                     }
                 </div>
-                <div className='mt-10 gap-x-20 space-y-2 ml-4 text-xl md:flex gap-32'>
+                <div className='mt-10 gap-x-20 space-y-2 ml-4 text-md md:flex gap-32 xl:text-xl'>
                     <div className=''>
                         Quality: {item.quality}
                     </div>
@@ -55,7 +55,7 @@ const MovieInfo = ({ item }) => {
                         Duration: {item.time}
                     </div>
                 </div>
-                <div className='mt-10 gap-x-20 space-y-2 ml-4 text-xl md:flex gap-32'>
+                <div className='mt-10 gap-x-20 space-y-2 ml-4 text-md md:flex gap-32 xl:text-xl'>
                     <div className=''>
                         Category: {item.category?.map((cate) => cate.name).join(", ")}
                     </div>
@@ -63,12 +63,12 @@ const MovieInfo = ({ item }) => {
                         Status: {item.status}
                     </div>
                 </div>
-                <div className='mt-10 gap-x-20 space-y-2 ml-4 text-xl md:flex gap-32'>
+                <div className='mt-10 gap-x-20 space-y-2 ml-4 text-md md:flex gap-32 xl:text-xl'>
                     <div className=''>
                         Actor: {item.actor?.join(", ")}
                     </div>
                 </div>
-                <div className='mt-10 gap-x-20 space-y-2 ml-4 text-xl md:flex gap-32'>
+                <div className='mt-10 gap-x-20 space-y-2 ml-4 text-md md:flex gap-32 xl:text-xl'>
                     <div className=''>
                         <p className=" mb-4">Episodes: {item.episode_total}</p>
                     </div>

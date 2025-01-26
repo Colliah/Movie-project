@@ -1,7 +1,7 @@
 import { Banana, ChevronDown, ChevronUp, Clapperboard, Film, Menu, Popcorn, Search, Tv } from "lucide-react";
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-// import SearchSite from "./SearchSite";
+import SearchSite from "./SearchSite";
 import { useTheme } from "./ThemeContext";
 
 
@@ -89,30 +89,30 @@ const Sidebar = () => {
 
             {/* Sidebar */}
             <div
-                className={`fixed top-0 right-0 w-64 h-full bg-white dark:bg-black transform transition-all duration-300 
+                className={`fixed top-0 right-0 w-full h-full bg-white dark:bg-black transform transition-all duration-300 
                 ${isOpen ? "translate-x-0" : "translate-x-full"}`}
             >
                 <div className="flex justify-between items-center p-4 bg-white dark:bg-black  ">
-                    <h2 className="text-black dark:text-white text-xl underline font-bold">Menu</h2>
+                    <h2 className="text-black dark:text-white text-xl underline font-bold"></h2>
                     <button onClick={toggleSidebar} className="text-black dark:text-white  text-4xl">
                         &times;
                     </button>
                 </div>
                 <div className="flex justify-around bg-white dark:bg-black">
-                    {/* <div className='flex items-center gap-x-2'>
+                    <div className='flex items-center gap-x-2'>
                         <div
                             onClick={toggleSearchSite}
                             className='cursor-pointer text-black dark:text-white'
                         >
                             <Search />
                         </div>
-                    </div> */}
+                    </div>
 
-                    {/* <SearchSite
+                    <SearchSite
                         isSearchOpen={isSearchOpen}
                         setIsSearchOpen={setIsSearchOpen}
                         toggleSearchSite={toggleSearchSite}
-                    /> */}
+                    />
 
                     {/* Thêm nút chuyển đổi Dark Mode */}
                     <div className="flex items-center cursor-pointer" onClick={toggleTheme}>
@@ -158,10 +158,7 @@ const Sidebar = () => {
                             </div>
                         ))}
                     </div>
-
-
                 </nav>
-
             </div>
         </>
     );
