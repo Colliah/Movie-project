@@ -91,6 +91,7 @@ const SearchSite = ({ isSearchOpen, setIsSearchOpen, toggleSearchSite }) => {
                         <>
                             {results.map((result, index) => (
                                 <Link
+                                    unoptimized
                                     key={index}
                                     onClick={handleCloseSearch}
                                     to={`/detail-mov/${result.slug}`}

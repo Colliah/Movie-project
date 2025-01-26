@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const FilmCard = ({ name, image, slug }) => {
     return (
         <Link
+            unoptimized
             to={`/detail-mov/${slug}`}
             className="w-full h-full  border-2 gap-2 border-stone-600 rounded-md relative group overflow-hidden dark:border-white"
         >

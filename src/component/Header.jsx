@@ -82,6 +82,7 @@ const Header = () => {
                 <div className="hidden md:flex space-x-8 lg:space-x-20 lg:ml-8 xl:space-x-28 text-sm items-center mr-auto ">
                     {about.map((item, index) => (
                         <div
+                            unoptimized
                             key={index}
                             onMouseEnter={() => item.children && setShowMenuIndex(index)}
                             onMouseLeave={() => setShowMenuIndex(null)}

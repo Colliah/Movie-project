@@ -9,6 +9,7 @@ const MovieList = ({ items, path }) => {
                     {items.length > 0 ? (
                         items.map((movie, index) => (
                             <FilmCard
+                                unoptimized
                                 key={index}
                                 name={movie.name}
                                 slug={movie.slug}
