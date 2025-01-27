@@ -66,10 +66,18 @@ const Sidebar = () => {
         setIsOpen(!isOpen);
     };
 
+
+
+
     const [isSearchOpen, setIsSearchOpen] = useState(false); // search
     const toggleSearchSite = () => setIsSearchOpen(!isSearchOpen); // search
 
     const { isDarkMode, toggleTheme } = useTheme(); // Lấy trạng thái dark mode từ context
+
+    const handle = () => {
+        toggleSidebar();
+        toggleSearchSite();
+    }
     return (
         <>
             {/* Button to open sidebar */}
@@ -89,7 +97,7 @@ const Sidebar = () => {
 
             {/* Sidebar */}
             <div
-                className={`fixed top-0 right-0 w-full h-full bg-white dark:bg-black transform transition-all duration-300 
+                className={`fixed top-0 right-0 w-full h-full bg-white dark:bg-black transform transition-all duration-300 md:hidden
                 ${isOpen ? "translate-x-0" : "translate-x-full"}`}
             >
                 <div className="flex justify-between items-center p-4 bg-white dark:bg-black  ">
@@ -111,7 +119,8 @@ const Sidebar = () => {
                     <SearchSite
                         isSearchOpen={isSearchOpen}
                         setIsSearchOpen={setIsSearchOpen}
-                        toggleSearchSite={toggleSearchSite}
+                        toggleSearchSite={handle}
+
                     />
 
                     {/* Thêm nút chuyển đổi Dark Mode */}
