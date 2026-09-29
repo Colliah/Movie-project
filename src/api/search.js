@@ -1,10 +1,11 @@
 import axios from "axios";
-
-const API_URL = "https://ophim1.com/v1/api"
+import { KKPHIM_API_URL } from "./config";
 
 export const searchApi = {
     search: async (name) => {
-        const response = await axios.get(`${API_URL}/tim-kiem?keyword=${name}`)
+        const response = await axios.get(`${KKPHIM_API_URL}/tim-kiem`, {
+            params: { keyword: name },
+        })
         return response.data
     }
 }

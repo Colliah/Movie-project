@@ -6,8 +6,7 @@ import MovieInfo from '../component/MovieInfo';
 import Episode from '../component/Episode';
 import Video from '../component/Video';
 import Loading from '../component/Loading';
-
-const path = "https://img.ophim.live/uploads/movies/"
+import { getMovieImageUrl } from '../api/config';
 
 const DetailsMoviePage = () => {
     const [isOverviewVisible, setIsOverviewVisible] = useState(false); // State để toggle hiển thị
@@ -48,7 +47,7 @@ const DetailsMoviePage = () => {
                     <Loading />
                 ) : (
                     <>
-                        <BackgroundMov imgbg={`${path}${movies.poster_url}`} />
+                        <BackgroundMov imgbg={getMovieImageUrl(movies.poster_url)} />
                         <MovieInfo item={movies} />
                         <Episode items={movies} onEpisodeClick={handleEpisode} />
                         <div className='w-full bg-black mt-30'>

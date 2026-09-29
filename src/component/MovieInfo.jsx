@@ -1,6 +1,6 @@
 import { ClipboardType } from 'lucide-react'
 import React, { useState } from 'react'
-const path = "https://img.ophim.live/uploads/movies/"
+import { getMovieImageUrl } from '../api/config'
 const removePTags = (html) => {
     const div = document.createElement("p");
     div.innerHTML = html;
@@ -16,7 +16,7 @@ const MovieInfo = ({ item }) => {
         <div className='container mx-auto flex flex-col text-white bg-black  gap-8 md:flex-col 2xl:flex-row '>
             <div className=' z-10 flex items-center justify-center  px-4 flex-shrink-0'>
                 <img
-                    src={`${path}${item.thumb_url}`}
+                    src={getMovieImageUrl(item.poster_url)}
                     alt={item.name}
                     className="h-[160px] border-2 object-cover rounded-lg md:h-[280px] 2xl:h-[520px]  "
                 />

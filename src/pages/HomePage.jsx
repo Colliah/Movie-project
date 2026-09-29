@@ -4,9 +4,7 @@ import { movieApi } from '../api/movie'
 import { useParams } from 'react-router-dom'
 import Pagination from '../component/Pagination'
 import Loading from '../component/Loading'
-import Sidebar from '../component/Sidebar'
-
-const path = "https://img.ophim.live/uploads/movies/"
+import { getMovieImageUrl } from '../api/config'
 
 const isCategoryPage = (pathname) => {
     return pathname.startsWith("/the-loai/");
@@ -75,7 +73,7 @@ const HomePage = () => {
                             {/* <Slider items={movies} path={path} /> */}
                         </div>
                         <div className='p-6 text-black'>
-                            <MovieList items={fetchState.movies} path={path} />
+                            <MovieList items={fetchState.movies} getImageUrl={getMovieImageUrl} />
                         </div>
                         {
                             //trang chu ko cho chuyen trang

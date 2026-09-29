@@ -5,10 +5,7 @@ import { Search, X } from 'lucide-react';
 import Loading from './Loading';
 import { searchApi } from '../api/search';
 import { Link } from 'react-router-dom';
-import FilmCard from './FilmCard';
-import { div } from 'framer-motion/client';
-
-const path = "https://img.ophim.live/uploads/movies/";
+import { getMovieImageUrl } from '../api/config';
 
 const SearchSite = ({ isSearchOpen, setIsSearchOpen, toggleSearchSite }) => {
     const [query, setQuery] = useState("");
@@ -99,7 +96,7 @@ const SearchSite = ({ isSearchOpen, setIsSearchOpen, toggleSearchSite }) => {
                                 >
                                     {/* Hình ảnh */}
                                     <img
-                                        src={`${path}${result.thumb_url}`}
+                                        src={getMovieImageUrl(result.thumb_url)}
                                         alt={result.name}
                                         className="w-full h-full object-cover"
                                     />
